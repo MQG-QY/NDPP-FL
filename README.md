@@ -1,8 +1,8 @@
 Moderation is the Best Policy: Dynamic Defense Against Gradient-Based Data Reconstruction Attacks in Federated Learning
 =
 
-> Qinyang Miao, Wen Sun, Dan Zhu, Jinku Li, Yajin Zhou, Cristina Alcaraz.  
-> *TDSC, 2024*
+> Qinyang Miao.  
+> This paper is currently under review
 ---
 ## Abstract
 Federated Learning (FL) is a privacy-preserving distributed machine learning framework. However, recent
