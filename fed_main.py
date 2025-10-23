@@ -129,16 +129,6 @@ def test(client_model, client_testloader):
 
     return accuracy
 
-
-log_file = "fedsam_training_log_cifar100_e_600.jsonl"  # 每轮结果保存到该文件
-# 如果之前有旧文件，选择是否清空
-if os.path.exists(log_file):
-    print(f"Log file '{log_file}' already exists, appending new records.")
-else:
-    with open(log_file, "w") as f:
-        f.write("")  # 创建空文件
-
-
 def main():
     mean_acc_s = []
     acc_matrix = []
@@ -252,13 +242,6 @@ def main():
         for client_model in clients_models:
             client_model.load_state_dict(global_model.state_dict())
 
-        log_record = {
-            "epoch": epoch,
-            "mean_accuracy": mean_acc_s,
-            "client_accuracies": clients_accuracies,
-        }
-        with open(log_file, "a") as f:
-            f.write(json.dumps(log_record) + "\n")  # 一行一轮结果，便于断点恢复
     char_set = '1234567890abcdefghijklmnopqrstuvwxyz'
     ID = ''
     for ch in random.sample(char_set, 5):
@@ -279,3 +262,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+
